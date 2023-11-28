@@ -1,11 +1,12 @@
 import random
-import sys
+import os
 #xo
 pl = [[" ", " ", " "], [" ", " ", " "], [" ", " ", " "]]
 win_Fl = 0
 
 def Place():
     global pl
+    os.system('cls||clear')
     for i in pl:
         print(i)
 
@@ -105,10 +106,12 @@ def Win():
         win_Fl = 1
 
 while win_Fl != 1:
+    
     Pat()
+    Place()
     Player()
     Pat()
     Comp()
-    Place()
-    Pat()
     Win()
+    Pat()
+    
