@@ -46,63 +46,13 @@ def Comp():
                     if pl[i][j] == " ":
                         pl[i][j] = "o"
                         fl = 1
-
-def Win():
+def Win(a, b, c):
     global win_Fl
-    # for player
-    if pl[0][0] == pl[0][1] ==  pl[0][2] == 'x':
-        print("Player win!")
+    if a==b==c=='x':
+        print('Player win!')
         win_Fl = 1
-    if pl[1][0] == pl[1][1] ==  pl[1][2] == 'x':
-        print("Player win!")
-        win_Fl = 1
-    if pl[2][0] == pl[2][1] ==  pl[2][2] == 'x':
-        print("Player win!")
-        win_Fl = 1
-
-    if pl[0][0] == pl[1][0] ==  pl[2][0] == 'x':
-        print("Player win!")
-        win_Fl = 1
-    if pl[0][1] == pl[1][1] ==  pl[2][1] == 'x':
-        print("Player win!")
-        win_Fl = 1
-    if pl[0][2] == pl[1][2] ==  pl[2][2] == 'x':
-        print("Player win!")
-        win_Fl = 1
-
-    if pl[0][0] == pl[1][1] ==  pl[2][2] == 'x':
-        print("Player win!")
-        win_Fl = 1
-    if pl[0][2] == pl[1][1] ==  pl[2][0] == 'x':
-        print("Player win!")
-        win_Fl = 1
-
-    #for computer
-    if pl[0][0] == pl[0][1] ==  pl[0][2] == 'o':
-        print("Comp win!")
-        win_Fl = 1
-    if pl[1][0] == pl[1][1] ==  pl[1][2] == 'o':
-        print("Comp win!")
-        win_Fl = 1
-    if pl[2][0] == pl[2][1] ==  pl[2][2] == 'o':
-        print("Comp win!")
-        win_Fl = 1
-
-    if pl[0][0] == pl[1][0] ==  pl[2][0] == 'o':
-        print("Comp win!")
-        win_Fl = 1
-    if pl[0][1] == pl[1][1] ==  pl[2][1] == 'o':
-        print("Comp win!")
-        win_Fl = 1
-    if pl[0][2] == pl[1][2] ==  pl[2][2] == 'o':
-        print("Comp win!")
-        win_Fl = 1
-
-    if pl[0][0] == pl[1][1] ==  pl[2][2] == 'o':
-        print("Comp win!")
-        win_Fl = 1
-    if pl[0][2] == pl[1][1] ==  pl[2][0] == 'o':
-        print("Comp win!")
+    elif a==b==c=='o':
+        print('Comp win!')
         win_Fl = 1
 
 while win_Fl != 1:
@@ -112,6 +62,15 @@ while win_Fl != 1:
     Player()
     Pat()
     Comp()
-    Win()
+    Win(pl[0][0],pl[0][1],pl[0][2])
+    Win(pl[1][0],pl[1][1],pl[1][2])
+    Win(pl[2][0],pl[2][1],pl[2][2])
+
+    Win(pl[0][0],pl[1][0],pl[2][0])
+    Win(pl[0][1],pl[1][1],pl[2][1])
+    Win(pl[0][2],pl[1][2],pl[2][2])
+
+    Win(pl[0][0],pl[1][1],pl[2][2])
+    Win(pl[0][2],pl[1][1],pl[2][0])
     Pat()
     
