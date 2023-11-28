@@ -21,31 +21,23 @@ def Pat():
         win_Fl = 1
 
 def Player():
-    flp = 0
-    while flp != 1:
+    while True:
         x = int(input("Введите координату Х : "))
         y = int(input("Введите координату Y : "))
-
-        for i in range(3):
-            for j in range(3):
-                if i + 1 == x and j + 1 == y:
-                    if pl[i][j] == " ":
-                        pl[i][j] = "x"
-                        flp = 1
-                    else:
-                        print("Клетка уже занята, введите другие координвты")
+        if pl[x-1][y-1] == " ":
+            pl[x-1][y-1] = "x"
+            break
+        else:
+            print('Клетка уже занята')
 
 def Comp():
-    fl = 0
-    while fl != 1:
+    while True:
         xc = random.randint(1,3)
         yc = random.randint(1,3)
-        for i in range(3):
-            for j in range(3):
-                if i + 1 == xc and j + 1 == yc:
-                    if pl[i][j] == " ":
-                        pl[i][j] = "o"
-                        fl = 1
+        if pl[xc-1][yc-1] == " ":
+            pl[xc-1][yc-1] = "o"
+            break
+
 def Win(a, b, c):
     global win_Fl
     if a==b==c=='x':
