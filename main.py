@@ -1,41 +1,38 @@
 import random
 import os
 #xo
-pl = [[" ", " ", " "], [" ", " ", " "], [" ", " ", " "]]
+pl = [" "]*9
 win_Fl = 0
 
 def Place():
     global pl
     os.system('cls||clear')
-    for i in pl:
-        print(i)
+    for i in range(0,8,3):
+        print(pl[i],"|", pl[i+1],"|", pl[i+2])
 
 def Pat():
     kol_kl = 0
-    for i in range(3):
-        for j in range(3):
-            if pl[i][j] != " ":
-                kol_kl += 1
+    for i in range(9):
+        if pl[i] != " ":
+            kol_kl += 1
     if kol_kl == 9:
         print("Pat")
         win_Fl = 1
 
 def Player():
     while True:
-        x = int(input("Введите координату Х : "))
-        y = int(input("Введите координату Y : "))
-        if pl[x-1][y-1] == " ":
-            pl[x-1][y-1] = "x"
+        x = int(input("Введите номер клетки: "))
+        if pl[x-1] == " ":
+            pl[x-1] = "x"
             break
         else:
             print('Клетка уже занята')
 
 def Comp():
     while True:
-        xc = random.randint(1,3)
-        yc = random.randint(1,3)
-        if pl[xc-1][yc-1] == " ":
-            pl[xc-1][yc-1] = "o"
+        o = random.randint(0,8)
+        if pl[o] == " ":
+            pl[o] = "o"
             break
 
 def Win(a, b, c):
@@ -47,22 +44,21 @@ def Win(a, b, c):
         print('Comp win!')
         win_Fl = 1
 
-while win_Fl != 1:
-    
+while win_Fl != 1: 
     Pat()
     Place()
     Player()
     Pat()
     Comp()
-    Win(pl[0][0],pl[0][1],pl[0][2])
-    Win(pl[1][0],pl[1][1],pl[1][2])
-    Win(pl[2][0],pl[2][1],pl[2][2])
+    Win(pl[0], pl[1],pl[2])
+    Win(pl[3], pl[4],pl[5])
+    Win(pl[6], pl[7],pl[8])
 
-    Win(pl[0][0],pl[1][0],pl[2][0])
-    Win(pl[0][1],pl[1][1],pl[2][1])
-    Win(pl[0][2],pl[1][2],pl[2][2])
+    Win(pl[0], pl[3],pl[6])
+    Win(pl[1], pl[4],pl[7])
+    Win(pl[2], pl[5],pl[8])
 
-    Win(pl[0][0],pl[1][1],pl[2][2])
-    Win(pl[0][2],pl[1][1],pl[2][0])
+    Win(pl[0], pl[4],pl[8])
+    Win(pl[2], pl[4],pl[6])
     Pat()
     
